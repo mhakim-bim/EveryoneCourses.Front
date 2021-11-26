@@ -1,3 +1,5 @@
+import { course } from './../../Models/course';
+import { CoursesService } from './../../services/courses.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  courses : course[] = [];
+
+  errorMessage : any;
+  constructor(private coursesService : CoursesService) { }
 
   ngOnInit(): void {
+
+    this.coursesService.getAllCourses().subscribe({
+      next : data => this.courses = data,
+      error : err => this.errorMessage = err
+    });
+
+
   }
 
 }

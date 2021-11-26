@@ -1,1 +1,9 @@
-<p>home-page works!</p>
+
+<div class="conatiner" *ngFor="let course of courses">
+
+  <div class="row">
+      <div class="col-3"><h1>Course Id</h1></div>
+      <div class="col-2"><h2>{{ course.courseId }}</h2></div>
+  </div>
+
+</div>
